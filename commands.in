@@ -1,0 +1,22 @@
+ServerPasswordSet ADMINPASSWORD
+HubCreate VPN /PASSWORD:
+hubdelete default
+Hub VPN
+UserCreate USERNAME_RP /GROUP:none /REALNAME:none /NOTE:none
+UserPasswordSet USERNAME_RP /PASSWORD:PASSWORD_RP
+OpenVPNEnable no /PORTS:1194
+sstpenable no
+SecureNatDisable
+natdisable
+dhcpdisable
+bridgecreate VPN /DEVICE:IFPLACEHOLDER /TAP:no
+ipsecenable /L2TP:yes /L2TPRAW:no /ETHERIP:no /PSK:SECRET_RP /DEFAULTHUB:VPN
+keepdisable
+vpnovericmpdnsenable /ICMP:no /DNS:no
+listenerdelete 1194
+listenerdelete 5555
+listenerdelete 992
+ServerCipherset AES256-SHA
+DynamicDnsSetHostname DDNS_HOSTNAME
+flush
+exit
