@@ -5,3 +5,5 @@ There is now SmartLink for remote access but some are interested in the VPN so I
 To package it up I used Makeself:
 http://makeself.io/
 
+This is old, but I am updating for the new Softether versions. Stay tuned.
+
